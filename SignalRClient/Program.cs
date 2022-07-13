@@ -1,9 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Microsoft.AspNetCore.SignalR.Client;
+using SignalRClient.service;
 
-Console.WriteLine("Hello, World!");
 
-var url = "http://localhost:8110/HealthCheck";
-var hubConnection = new HubConnectionBuilder().WithUrl(url).Build();
-hubConnection.On<string>("ReceiveMessage",message=> Console.WriteLine($"Server message : {message}"));
+var url = "http://localhost:5179/HealthCheck";
+var client = new MessageClient(url);
+await client.SendMessageAsync("Test");
+
