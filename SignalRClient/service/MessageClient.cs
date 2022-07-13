@@ -13,7 +13,7 @@ public class MessageClient
             {
                 options.WebSocketConfiguration = conf =>
                 {
-                    conf.RemoteCertificateValidationCallback = (message, cert, chain, errors) => true;
+                    conf.RemoteCertificateValidationCallback = (_, _, _, _) => true;
                 };
                 options.HttpMessageHandlerFactory = factory => new HttpClientHandler
                 {
@@ -30,6 +30,6 @@ public class MessageClient
             await _hubConnection.StartAsync();
         }
 
-        await _hubConnection.SendAsync("TestMessage",message);
+        await _hubConnection.SendAsync("SendMessage",message);
     }
 }
