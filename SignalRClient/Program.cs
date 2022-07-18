@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 using SignalRClient.service;
 
 
-var url = "http://localhost:5179/HealthCheck";
+var url = "https://localhost:7208/HealthCheck";
 var client = new MessageClient(url);
 await client.SendMessageAsync("Test");
 

@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace SignalRClient.service;
@@ -29,7 +30,7 @@ public class MessageClient
         {
             await _hubConnection.StartAsync();
         }
-
-        await _hubConnection.SendAsync("TestMessage",message);
+        
+        await _hubConnection.SendAsync("ReceiveMessage",message);
     }
 }
